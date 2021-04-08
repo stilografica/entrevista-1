@@ -8,7 +8,21 @@
         >
       </p>
       <p>
-        <strong> {{ c.quantity }} x {{ c.price }}€</strong>
+        <span v-if="c.name === 'Té verde'">
+          <strong> {{ c.quantity * 2 }} x {{ c.price }}€</strong>
+          <b-badge variant="success" class="ml-2"
+            >{{ c.quantity }} de regalo</b-badge
+          >
+        </span>
+        <span v-if="c.name != 'Té verde'">
+          <strong> {{ c.quantity }} x {{ c.price }}€</strong>
+          <span v-if="c.name === 'Fresas' && c.quantity >= 3">
+            <b-badge variant="success" class="ml-2">Bajada de precio</b-badge>
+          </span>
+          <span v-if="c.name === 'Café' && c.quantity >= 3">
+            <b-badge variant="success" class="ml-2">Bajada de precio</b-badge>
+          </span>
+        </span>
       </p>
     </div>
     <hr />

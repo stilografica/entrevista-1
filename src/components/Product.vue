@@ -27,12 +27,11 @@ export default {
   },
   methods: {
     addCart() {
-      this.$store
-        .dispatch("addMiniCart", {
-          name: this.product.name,
-          quantity: 1,
-          price: this.product.price,
-        })
+      this.$store.dispatch("addMiniCart", {
+        name: this.product.name,
+        quantity: 1,
+        price: this.product.price,
+      });
     },
   },
 };

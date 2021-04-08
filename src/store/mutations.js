@@ -4,8 +4,17 @@ export const ADDITEM = (state, { name, quantity, price }) => {
   });
   if (productCart) {
     productCart.quantity += quantity;
+    if (productCart.name === "Fresas" && productCart.quantity >= 3) {
+      productCart.price = 4.5;
+      return;
+    }
+    if (productCart.name === "Café" && productCart.quantity >= 3) {
+      productCart.price = parseFloat((11.23 / 3) * 2).toFixed(2);
+      Math.round(productCart.price * 100) / 100;
+    }
     return;
   }
+
   state.cart.push({ name, quantity, price });
 };
 

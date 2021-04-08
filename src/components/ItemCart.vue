@@ -3,7 +3,9 @@
     <div @click="$event.stopPropagation()">
       <p>
         <strong>{{ c.name }}</strong>
-        <b-badge variant="dark" class="ml-2">Eliminar</b-badge>
+        <b-badge variant="dark" class="ml-2" @click="borrarItem"
+          >Eliminar</b-badge
+        >
       </p>
       <p>
         <strong> {{ c.quantity }} x {{ c.price }}€</strong>
@@ -20,7 +22,11 @@ export default {
   props: {
     c: Object,
   },
-  components: {},
+  methods: {
+    borrarItem() {
+      this.$store.dispatch("deleteItem", this.c);
+    },
+  },
 
   computed: {
     ...mapState(["cart"]),

@@ -53,7 +53,6 @@ export default {
   },
   computed: {
     ...mapState(["products"]),
-    ...mapState(["notificacion"]),
   },
 };
 </script>

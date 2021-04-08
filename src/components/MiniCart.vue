@@ -3,7 +3,7 @@
     <ItemCart v-for="c in cart" :key="c.id" :c="c" />
     <p>
       <strong>Total</strong>: £
-      <b-badge variant="light" class="ml-2">Vaciar</b-badge>
+      <b-badge variant="light" class="ml-2" @click="remove">Vaciar</b-badge>
     </p>
   </b-dropdown-item>
 </template>
@@ -18,6 +18,11 @@ export default {
   },
   computed: {
     ...mapState(["cart"]),
+  },
+  methods: {
+    remove() {
+      this.$store.dispatch("removeCart");
+    },
   },
 };
 </script>

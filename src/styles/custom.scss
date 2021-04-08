@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
+$enable-shadows: true;
+$enable-gradients: true;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 456px,
+  md: 789px,
+  lg: 999px,
+  xl: 1234px,
+);
+$bv-enable-table-stacked: false;
+$body-bg: #ebedf5;
+$body-color: #1e283c;
+$font-family-sans-serif: "Montserrat";
+
+// General style overrides and custom classes
+$blue: #1e283c;
+$light: #ebedf5;
+$medium: #cacedf;
+
+$primary: $blue;
+$secondary: $light;
+$light: $medium;
+
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~bootstrap-vue/src/index.scss";

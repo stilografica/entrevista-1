@@ -6,7 +6,12 @@
         <h4>{{ product.name }}</h4>
         <h4>£ {{ product.price }}</h4>
       </b-card-text>
-      <b-button href="#" variant="light" class="mr-3">Ver</b-button>
+      <b-button href="#" variant="light" class="mr-3"
+        ><router-link
+          :to="{ name: 'ProductDetalle', params: { id: product.id } }"
+          >Ver</router-link
+        ></b-button
+      >
       <b-button href="#" variant="primary">Añadir al carrito</b-button>
     </b-card>
   </div>

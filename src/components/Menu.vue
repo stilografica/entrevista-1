@@ -1,7 +1,9 @@
 <template>
   <div>
     <b-navbar toggleable="lg" type="dark" variant="primary">
-      <b-navbar-brand to="/"><img src="../assets/colmado-brand.svg" alt="Colamado"/></b-navbar-brand>
+      <b-navbar-brand to="/"
+        ><img src="../assets/colmado-brand.svg" alt="Colamado"
+      /></b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -14,7 +16,8 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-item-dropdown text="Cart" right>
-            <b-dropdown-item href="#">MiniCart</b-dropdown-item>
+            <b-dropdown-item>Carrito</b-dropdown-item>
+            <MiniCart />
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
@@ -23,9 +26,12 @@
 </template>
 
 <script>
+import MiniCart from "./MiniCart";
 export default {
   name: "Menu",
-  components: {},
+  components: {
+    MiniCart,
+  },
   computed: {},
 };
 </script>

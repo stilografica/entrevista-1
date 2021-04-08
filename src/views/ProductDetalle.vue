@@ -11,13 +11,15 @@
           </div>
           <div class="col-8">
             <h1>{{ product.name }}</h1>
-            <h3>{{ product.price }}</h3>
+            <h3>£ {{ product.price }}</h3>
             <input
               type="text"
               class="text-center col.1 mr-2 mb-3 p-1"
               v-model.number="cantidad"
             />
-            <b-button variant="primary">Añadir al carrito</b-button>
+            <b-button variant="primary" @click="addCart(product)"
+              >Añadir al carrito</b-button
+            >
           </div>
         </div>
       </div>
@@ -34,8 +36,24 @@ export default {
   components: {
     BasicLayout,
   },
+  data() {
+    return {
+      cantidad: 1,
+    };
+  },
+
+  methods: {
+    addCart(product) {
+      this.$store.dispatch("addMiniCart", {
+        name: product.name,
+        quantity: this.cantidad,
+        price: product.price,
+      });
+    },
+  },
   computed: {
     ...mapState(["products"]),
+    ...mapState(["notificacion"]),
   },
 };
 </script>

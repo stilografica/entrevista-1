@@ -1,16 +1,24 @@
 <template>
   <b-dropdown-item>
+    <ItemCart v-for="c in cart" :key="c.id" :c="c" />
     <p>
       <strong>Total</strong>: £
-      <b-badge variant="light">Vaciar</b-badge>
+      <b-badge variant="light" class="ml-2">Vaciar</b-badge>
     </p>
   </b-dropdown-item>
 </template>
 
 <script>
+import { mapState } from "vuex";
+import ItemCart from "./ItemCart";
 export default {
   name: "MiniCart",
-  components: {},
+  components: {
+    ItemCart,
+  },
+  computed: {
+    ...mapState(["cart"]),
+  },
 };
 </script>
 <style lang="scss"></style>

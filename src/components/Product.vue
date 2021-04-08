@@ -12,7 +12,9 @@
           >Ver</router-link
         ></b-button
       >
-      <b-button href="#" variant="primary">Añadir al carrito</b-button>
+      <b-button href="#" variant="primary" @click="addCart"
+        >Añadir al carrito</b-button
+      >
     </b-card>
   </div>
 </template>
@@ -22,6 +24,16 @@ export default {
   name: "Product",
   props: {
     product: Object,
+  },
+  methods: {
+    addCart() {
+      this.$store
+        .dispatch("addMiniCart", {
+          name: this.product.name,
+          quantity: 1,
+          price: this.product.price,
+        })
+    },
   },
 };
 </script>

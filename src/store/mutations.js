@@ -17,7 +17,3 @@ export const DELETEITEMCART = (state, c) => {
   let index = state.cart.indexOf(c);
   state.cart.splice(index, 1);
 };
-
-export const CANTIDADITEMCART = (state, cantidad) => {
-  state.cantidad = cantidad;
-};

@@ -15,7 +15,8 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item-dropdown text="Cart" right>
+          <span>{{ itemsCart }}</span
+          ><b-nav-item-dropdown text="Cart" right>
             <b-dropdown-item>Carrito</b-dropdown-item>
             <MiniCart />
           </b-nav-item-dropdown>
@@ -27,13 +28,21 @@
 
 <script>
 import MiniCart from "./MiniCart";
+import { mapGetters } from "vuex";
+
 export default {
   name: "Menu",
   components: {
     MiniCart,
   },
-  computed: {},
+  computed: {
+    ...mapGetters(["itemsCart"]),
+  },
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+span {
+  color: #ebedf5;
+}
+</style>
